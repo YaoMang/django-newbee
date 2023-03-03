@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'userauth/userauth.css' %}"/>
+</head>
+<body>
+    <a href="{% url 'userauth:signin' %}" id="sign_in_info" hidden></a>
+    <a href="{% url 'userauth:signup' %}" id="sign_up_info" hidden></a>
+    <div class="embed-mask">
+        <div class="embed-window">
+            <div data-icon-close class="embed-close-icon fa fa-close fa-2x"></div>
+            <div class="embed-login">
+                <div class="embed-input-group">
+                    <form class="tab__form">
+                        {% csrf_token %}
+                        <div class="form__item form__item_top">
+                            <div class="form_info">账号</div>
+                            <input data-username type="text" autocomplete="on" placeholder="请输入账号"/>
+                        </div>
+                        <div class="form__item form__item_bottom">
+                            <div class="left">
+                            <div class="form_info">密码</div>
+                            <input data-passwd type="password" autocomplete="on" placeholder="请输入密码"/>
+                            </div>
+                            <i data-icon-eye class="fa fa-eye-slash"></i>
+                            <div class="forget" style="font-size: 10px; align-content:right">忘记密码</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="btn-box">
+                    <div class="btn btn-login">登录</div>
+                    <div class="btn btn-register">注册</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pop_container"></div>
+    <link type="text/css" rel="stylesheet" href="{% static 'userauth/userauth.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="{% static 'userauth/userauth.js' %}"></script>
+</body>
+</html> 
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'userauth/userauth.css' %}"/>
+</head>
+<body>
+    <!--Sign in--><!--
+    <div id="sign_in">
+        <form action="{% url 'userauth:signin' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username"/><br/>
+            <input type="text" name="password"/><br/>
+            <input type="submit" value="Sign in"/>
+        </form>
+    </div>
+    <!--Sign up--><!--
+    <div id="sign_up" hidden="hidden">
+        <form action="{% url 'userauth:signup' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username"/><br/>
+            <input type="text" name="password"/><br/>
+            <input type="submit" value="Sign up"/><br/>
+        </form>
+    </div>
+    <!--Switch box--><!--
+    <div id="switchBtn" class="btn btn-others">Signin/Signup</div>
+    <div class="btn btn-primary"></div>
+    <!--Script Area--><!--
+    <script type="text/javascript" src="{% static 'userauth/userauth.js' %}"></script>
+</body>
+</html>
+-->
